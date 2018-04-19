@@ -1,0 +1,151 @@
+<app-header> </app-header>
+
+<section class="thin-banner" style="padding:100px 0 100px 0;">
+	<h3 class="text-center" style="font-weight:700; color:#FBC02D;">VENDOR<span style="color:#1976D2;">  &nbsp;DASHBOARD</span></h3>
+	<p class="text-center text-white">Manage your car via Vendor Dashboard</p>
+</section>
+
+<section style="padding:100px 0 100px 0; background-color: #F8FCFF;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 nopad">
+				<app-vendormenu> </app-vendormenu>
+			</div>
+			<div class="col-sm-10 details z-depth-1-half">
+				<div class="row">
+					<div class="col-md-4 custo">
+						<h6 class="wtext"> Images </h6> 
+					</div>
+					<div class="col-md-6"> </div>
+					<div class="col-md-2 custo">
+					<button class="btn btn-sm btn-yellow" href="#"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit </button>
+					</div>
+				</div>
+
+				<div class="row v_row">
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<img class="img-responsive vimg" src="{{ dcar.images[0] }}"> 
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<img class="img-responsive vimg" src="{{ dcar?.images[1] }}"> 
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<img class="img-responsive vimg" src="{{ dcar?.images[2] }} "> 
+					</div>
+				</div>
+
+				<div class="row v_row">
+					<div class="col-md-4 custo">
+						<h6 class="wtext"> Details </h6> 
+					</div>
+					<div class="col-md-6"> </div>
+					<div class="col-md-2 custo">
+					<button class="btn btn-md btn-sm btn-yellow" href="#"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit </button>
+					</div>
+				</div>	
+
+				<div class="row">
+					<div class="vendor_details col-md-12">
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t"> Brand: <span class="i_contact_text spann1" id="spann1"> {{ dcar.brand }} </span> </h6>
+						</div>
+						<div class="col-md-3 custo vd">
+							<h6 class="v_details_t"> Model: <span class="i_contact_text" id="sfor"> {{ dcar.model }} </span> </h6>
+						</div>
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t t4"> Registration No. <span class="i_contact_text" id="sregi"> {{ dcar.regNumber }}  </span> </h6>
+						</div>
+					</div>
+					<div class="vendor_details col-md-12">
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t" > Month/Year of Manufacturing: <span class="i_contact_text" id="smanu"> {{ dcar.mfgDate }}  </span> </h6>
+						</div>
+						<div class="col-md-3 custo vd">
+							<h6 class="v_details_t"> Insurance valid upto:<span class="i_contact_text" id="sins"> {{ dcar.insuranceUpto }} </span> </h6>
+						</div>
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t t4" id="v_polu"> Polution certificate valid upto: <span class="i_contact_text" id="spol"> {{ dcar.pollutionCertUpto }} </span> </h6>
+						</div>
+					</div>
+					<div class="vendor_details col-md-12">
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t"> Road Permit: <span class="i_contact_text" id="sben"> Bengal  </span> </h6>
+						</div>
+						<div class="col-md-3 custo vd">
+							<h6 class="v_details_t"> Seat Capacity: <span class="i_contact_text spann2"> {{ dcar.seatingCapacity }} </span> </h6>
+						</div>
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t t4"> Fuel Type: <span class="i_contact_text spann33"> {{ dcar.fuelType }} </span> </h6>
+						</div>
+					</div>
+					<div class="vendor_details col-md-12">
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t"> KMS Ran : <span class="i_contact_text" id="skm"> {{ dcar.kmsRan }} </span> </h6>
+						</div>
+						<div class="col-md-3 custo vd">
+							<h6 class="v_details_t"> Mileage: <span class="i_contact_text" id="smi"> {{ dcar.mileage }} km/l </span> </h6>
+						</div>
+						<div class="col-md-4 custo vd">
+							<h6 class="v_details_t t4"> ID Card.: <span class="i_contact_text spann33" id="sjo"> John Wick(Driver)  </span> </h6>
+						</div>
+					</div>
+				</div>    <!-- 3nd row ends -->
+
+				<div class="v_row">
+					<div>
+						<h6 class="wtext"> Features </h6> 
+					</div>
+					<div>
+						<p> Air Conditioner, Music System,Stepheny+ Jack,Airbags </p>
+					</div>
+				</div>
+
+				<div class="v_row">
+					<div>
+					   <h6 class="wtext"> Services </h6> 
+					</div>
+					<div>
+						<button class="btn btn-md btn-blue" type="button"> View Pricing Details </button>
+					</div>
+				</div><!-- 4th row ends -->
+
+				<div class="v_row">
+					<div>
+						<h6 class="wtext"> Disable your Car</h6> 
+					</div>
+					
+					<div class="row">
+						<div class="col-md-2 custo">
+							<div class="input-group date" id="datetimepicker1">
+								<input id="date-picker-example" class="form-control datepicker dt vdt" required placeholder="Date">
+								<i class="fa fa-calendar ico" aria-hidden="true"></i>
+							</div>
+						</div>
+
+						<div class="col-md-1 custo text-center to"> <p> To </p> </div>
+
+						<div class="col-md-2 custo">
+							<div class="input-group date" id="datetimepicker1">
+								<input id="date-picker-example" class="form-control datepicker dt vdt" required placeholder="Date ">
+								<i class="fa fa-calendar ico" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+						
+					<div>
+						<button class="btn btn-md btn-blue" type="button"> Disable your car </button>
+					</div>
+				</div><!--- 5th row ends -->
+				<div class="v_row">
+					<div>
+						<h6 class="wtext"> Remove Car</h6> 
+					</div>
+					<div>
+						<button class="btn btn-md btn-red" type="button"> Remove Car </button>
+					</div>
+				</div>
+			</div>
+		</div>   <!-- main row ends here -->
+	</div>
+</section>
+<app-footer> </app-footer>

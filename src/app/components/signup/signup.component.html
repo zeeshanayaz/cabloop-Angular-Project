@@ -1,0 +1,176 @@
+<app-header> </app-header>
+<body>
+	<div class="loader" id="loading" *ngIf="loadingg">
+		<img src="../../assets/img/loader/252.gif" id="loading-content">
+	</div>
+
+	<!-- Start your project here-->
+	<section class="contain banner">
+		<div class="row">
+			<div class="container">
+				<div class="col-sm-10 offset-sm-1">
+					<div class="col align-self-center">
+						<div class="card view overlay hm-white-slight margin" style="padding-top:0px;padding-bottom:0px; top:18px">
+							<div class="row">
+								<div class="col-sm-6" style="padding:0 20px 0 30px;">
+									<div class="row">
+										<div class="col-sm-12" style="padding-top:12px;">
+											<h4 class="card-title indigo-text text-left"><strong style="font-weight:700;">Create Account</strong></h4>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="input-group">
+														<span class="input-group-addon colorfacebook chh"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+														<input  type="text" name=" id_number"  value="Facebook" disabled="true" class="form-control colorfacebook soc">
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="input-group">
+														<span class="input-group-addon colorgoogle chh"><i class="fa fa-google-plus" aria-hidden="true"></i></span>
+														<input  type="text" name=" id_number"  value="Google" disabled="true" class="form-control colorgoogle soc">
+													</div>
+												</div>
+											</div>
+											<form [formGroup]="userSignUpForm" >
+												<div *ngIf="error">
+													<p class="error"> {{ emessage1 }} </p>
+													<p class="error"> {{ emessage2 }} </p>
+													<p class="error"> {{ emessage3 }} </p>
+													<p class="error"> {{ emessage4 }} </p>
+													<p class="error"> {{ emessage5 }} </p>
+												</div>
+
+												<div class="input-group input">
+													<div class="input-group form-sm">
+														<select class="sele control-bg" id="country">
+														<option value="+33">+33</option>
+														<option value="+91">+91</option>
+														<option value="+44">+44</option>
+														</select>
+														<input type="text"  placeholder="Phone No" class="form-control noborder_right iitem control-bg" formControlName="mobileNumber" #mobile>
+														<i class="fa fa-asterisk input-group-addon colorasterisk" aria-hidden="true"></i>
+													</div>
+												</div>
+
+												<div class="form-inline">
+													<div class="form-group">
+														<input type="checkbox" id="checkbox11">
+														<label for="checkbox11">&nbsp;Individual Car Owner</label>
+													</div>
+													<div class="form-group">
+														<input type="checkbox" class="filled-in noborder_right" id="checkbox22">
+														<label for="checkbox22">&nbsp;Travel Agent</label>
+													</div>
+												</div>
+
+												<p>&nbsp;</p>
+
+												<div class="input-group form-sm">
+													<input type="text" placeholder="Full Name" class="form-control noborder_right iitem control-bg" formControlName="fullName" #name>
+													<i class="fa fa-asterisk input-group-addon colorasterisk" aria-hidden="true"></i>
+												</div>
+
+												<div class="input-group form-sm">
+													<input type="text" placeholder="Alias Name" class="form-control noborder_right iitem control-bg" formControlName="alias" #alias>
+													<i class="fa fa-asterisk input-group-addon colorasterisk" aria-hidden="true"></i>
+												</div>
+
+												<div class="input-group form-sm">
+													<input type="email" placeholder="Email id" class="form-control noborder_right iitem control-bg" formControlName="emailId" #email>
+													<i class="fa fa-asterisk input-group-addon colorasterisk" aria-hidden="true"></i>
+												</div>
+
+												<div class="input-group form-sm">
+													<input type="password" placeholder="Password" class="form-control noborder_right iitem control-bg" formControlName="password" #password>
+													<i class="fa fa-asterisk input-group-addon colorasterisk" aria-hidden="true"></i>
+												</div>
+
+												<button type="button" class="btn btn-yellow btn-md btn-block sbu" (click)="onSignUp(mobile.value,name.value,alias.value,email.value,password.value)">Sign Up</button>
+											</form>
+											<p class="text-center black-text" style="margin-top:10px;font-size: 10px;">By clicking Sign up you accept<a href="#" class="blue-text"> Terms and conditions</a></p>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6" style="background:#FFB902; padding: 0 30px 0 20px;">
+									<div class="row">
+										<div class="col-sm-12" style="padding-top:12px;">
+											<h4 class="card-title white-text text-left"><strong style="font-weight:700;">Login</strong></h4>
+
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="input-group">
+														<span class="input-group-addon colorfacebook chh">  <i class="fa fa-facebook" aria-hidden="true"></i> </span>
+														<input type="text" name="id_number"  value="Facebook" disabled="true" class="form-control colorfacebook soc">
+													</div>
+												</div>
+
+												<div class="col-sm-6">
+													<div class="input-group">
+														<span class="input-group-addon colorgoogle chh"><i class="fa fa-google-plus" aria-hidden="true"></i></span>
+														<input type="text" name="id_number" value="Google" disabled="true" class="form-control colorgoogle soc">
+													</div>
+												</div>
+											</div>
+
+											<form [formGroup]="userSignInForm">
+												<div class="input-group form-sm">
+													<input type="text" placeholder="User Name" formControlName="userName" #userName class="form-control noborder_right lform" required>
+												</div>
+
+												<div class="input-group form-sm">
+													<input type="password" placeholder="Password" formControlName="password" #passsword class="form-control lform" required>
+												</div>
+
+												<button type="button" class="btn btn-blue btn-md btn-block sbu" (click)="onLogIn(userName.value,passsword.value)">Login</button>
+												<p>&nbsp;</p>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--Card-->
+			</div>
+		</div>
+	</section>
+
+	<div class="modal fade" id="services" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-notify modal-info modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="padding-bottom: 0px;padding-top: 0px;">
+					<p class="heading lead fadeIn animated" align="center"></p>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding-top: 5px;">
+						<span aria-hidden="true" class="black-text-text">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="padding-top: 0px;">
+					<div class="text-center">
+						<p class="text-left"><b>Enter the OTP</b></p>
+						<div class="row">
+							<div class="col-sm-12">
+								<p class="text-left black-text" style="line-height: 1.2;">To verify this Phone Number, Please enter the OTP that has been sent to your<br> Mobile Number <span id="no"></span></p>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="md-form form-sm">
+											<input type="text" id="form1" placeholder="Type OTP here" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-sm-2">
+										<button type="button" class="btn btn-primary btn-sm fa-plus-circle-left pull-left">Confirm</button>
+									</div>
+
+									<div class="col-sm-3">
+										<button type="button" class="btn btn-amber btn-sm fa-plus-circle-left pull-left">Resend OTP</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<app-footer> </app-footer>

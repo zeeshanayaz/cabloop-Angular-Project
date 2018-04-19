@@ -1,0 +1,146 @@
+<app-header> </app-header>
+
+<div class="loader" id="loading" *ngIf="loadingg">
+	<img src="../../assets/img/loader/252.gif" id="loading-content">
+</div>
+
+<section class="thin-banner" style="padding:100px 0 100px 0;">
+	<h3 class="text-center" style="font-weight:700; color:#FBC02D;">VENDOR<span style="color:#1976D2;">  &nbsp;DASHBOARD</span></h3>
+	<p class="text-center text-white">Manage your car via Vendor Dashboard</p>
+</section>
+
+<section style="padding:100px 0 100px 0; background-color: #F8FCFF;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 nopad">
+				<app-vendormenu> </app-vendormenu>
+			</div>
+			<div class="col-sm-10 details z-depth-1-half">
+				<div class="content">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-5 image_box"></div>
+
+							<div class="col-md-7 image_info">
+								<div>
+									<h5 style="font-weight:700;"><span style="color:#1976D2;"> THE VEEZ </span></h5>
+									<span style="font-weight:700;"> Company </span>
+								</div>
+
+								<div class="rating">
+									<input type="radio" id="star5" name="rating" value="5"/>  <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4"/>  <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3"/>  <label class = "full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2"/>  <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1"/>  <label class = "full" for="star1" title="Sucks big time - 1 star"></label>	  
+								</div>
+
+								<div class="m_text">
+									<p> Morbi malesuada dapibus placerat. Sed cursus,mauris luctus viverra euismod,mi lorem bibendum odio, in euismod urna lorem eu purus.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div>
+								<div class="col-md-6 p_heading" style="margin-right:5%;">
+									<h5 style="font-weight:600;"> <span style="color:#1976D2;"> Contact Details </span>  </h5>
+								</div>
+								<div class="col-md-4 contact_edit">
+									<button type="button" class="btn btn-sm btn-yellow waves-light"  (click)="showModal()"> Edit </button>
+								</div>
+							</div>
+								
+							<div class="m_contact_details">
+								<div>
+									<h6 class="contact_text"> Phone No. <span class="i_contact_text" id="span1"> {{ user?.mobileNumber }}<span style="color: green;"> (Verified) </span> </span> </h6>
+								</div>
+								<div>
+									<h6 class="contact_text"> Address <span class="i_contact_text" id="span2"> {{ user?.address}} </span> </h6>
+								</div>
+								<div>
+									<h6 class="contact_text"> Email  <span class="i_contact_text" id="span3"> {{ user?.emailId }}  <span style="color: green;"> (Verified) </span> </span> </h6>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="change">
+						<form [formGroup]="updatePasswordForm">
+							<h5 class="p_details"> Change Password </h5>
+
+							<div class="form-group">
+								<input class="form-control fitem" type="password" placeholder="Current Password" #oldpassword formControlName="oldpassword" required>
+							</div>
+
+							<div class="form-group">
+								<input class="form-control fitem" type="password" placeholder="New Password"  #newpassword formControlName="newpassword" required>
+							</div>
+
+							<div class="form-group">
+								<input class="form-control fitem" type="password" placeholder="Retype new Password"  #repassword formControlName="renewpassword" required>
+							</div>
+
+							<div *ngIf="updatePasswordForm.controls['renewpassword'].touched && newpassword.value === repassword.value" style="color:green;">
+								Password Matches
+							</div>
+
+							<div>
+								<button class="btn btn-lg btn-yellow" type="button" style="line-height:1.00;" (click)="changePassword(oldpassword.value,newpassword.value)"> Save </button>
+							</div>
+						</form>
+					</div>
+					<hr/>
+					<div>
+						<button class="btn btn-lg btn-red"> Remove Acount </button>
+					</div>
+				</div>   <!-- row ends here -->
+			</div>
+
+			<!-- Button trigger modal -->
+
+			<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" mdbModal #autoShownModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel"> Update Your Profile </h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hideModal()">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form [formGroup]="userUpdateForm">
+								<div class="input-group form-sm">
+									<input type="text" id="form1" placeholder="Full Name" class="form-control noborder_right input eitem" style="background:  #ECEBEF!important;" formControlName="fullName" #fullname  value="{{user?.fullName}}">
+									<span class="input-group-addon colorasterisk noborder eed"><i class="fa fa-asterisk noborder_left" aria-hidden="true"></i></span>
+								</div>
+
+								<div class="input-group form-sm">
+									<input type="text" id="form1" placeholder="Address" class="form-control noborder_right input eitem" style="background:  #ECEBEF!important;" formControlName="address" #address value="{{user?.address}}">
+									<span class="input-group-addon colorasterisk noborder eed"><i class="fa fa-asterisk noborder_left" aria-hidden="true"></i></span>
+								</div>
+
+								<div class="form-group">
+									<input formControlName="gender" #gender name="gender" value="M" type="radio" (click)="selectGender('M')" [checked]="user?.gender === 'M' ">
+									<label for="radio1"> Male </label>
+									
+									<input formControlName="gender" #gender name="gender" value="F" type="radio" (click)="selectGender('F')" [checked]="user?.gender === 'F' ">
+									<label> Female </label>
+								</div>
+								<div class="form-group"></div>
+								<div>
+									<input type="date" formControlName="dob" #dob   value="{{user?.dob}}" />
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="hideModal()">Close</button>
+							<button type="button" class="btn btn-primary" (click)="updateProfile(fullname.value,address.value,dob.value)">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-footer> </app-footer>

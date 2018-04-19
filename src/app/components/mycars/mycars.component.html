@@ -1,0 +1,223 @@
+<app-header> </app-header>
+
+<section class="thin-banner" style="padding:100px 0 100px 0;">
+	<h3 class="text-center" style="font-weight:700; color:#FBC02D;">VENDOR<span style="color:#1976D2;">  &nbsp;DASHBOARD</span></h3>
+	<p class="text-center text-white">Manage your car via Vendor Dashboard</p>
+</section>
+
+<section style="padding:100px 0 100px 0; background-color: #F8FCFF;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 nopad">
+				<app-vendormenu> </app-vendormenu>
+			</div>
+			<div class="col-sm-10 details z-depth-1-half">
+				<div class="content">
+					<div class="row">
+						<div class="col-sm-2 nopad_right">
+							<div class="dropdown">
+								<button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="color:black!important;min-width: 8.5rem!important;box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .10), 0 4px 15px 0 rgba(0, 0, 0, .10)!important;font-weight: 600;font-size: .90rem;">
+									Sort by
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu4" style="min-width: 8.5rem;">
+									<a class="dropdown-item" href="#">Price</a>
+									<a class="dropdown-item" href="#">Color</a>
+									<a class="dropdown-item" href="#">Date</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-2 ">
+							<div class="dropdown">
+								<button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"  style="color:black!important;min-width: 8.2rem!important;box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .10), 0 4px 15px 0 rgba(0, 0, 0, .10)!important;font-weight: 600;font-size: .90rem;">
+									Cars
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu4" style="min-width: 8.5rem;">
+									<a class="dropdown-item" href="#">Car x</a>
+									<a class="dropdown-item" href="#">Car y</a>
+									<a class="dropdown-item" href="#">Car z</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<a class="btn btn-sm btn-yellow pull-right bd" [routerLink]="['/add-car']">Add new Car</a>   
+						</div>
+					</div> <!--- row1 ends -->
+
+					<!--Panel-->
+					<br>
+
+					<div class="card card-body z-depth-1-half" *ngFor="let car of carDetails">
+						<div class="row">
+							<div class="col-sm-5">
+								<img src="{{ car.images[0] }}" width="292" alt="Car Pic" class="img-responsive icar">
+								<div class="row" style="padding-top:10px">
+									<div class="col-sm-5 " style="padding-right: 0px;">
+										<a class="btn btn-sm btn-yellow pull-left bd" (click)="showDetails(car)">View Details</a>
+									</div>
+									<div class="col-sm-6" style="padding-left: 0px;">
+										<a class="btn btn-sm btn-blue pull-left bd">Check Booking</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="row adjust">
+									<div class="col-sm-8">
+										<h5 class="text-left" style="font-weight: 600">  {{ car.brand }} </h5>
+										<p class="text-left" style="line-height: 1.2;">  The Ford Fusion is an expressive and efficient top choice among midsize sedans. The engines. </p>
+										<div class="row">
+											<div class="col-sm-6">
+												<p><b>Passengers</b></p>
+												<p><b>Important Details</b></p>
+												<p><b>Another Details</b></p>
+											</div>
+											<div class="col-sm-6">
+												<p class="color_p"> {{ car.seatingCapacity }} </p>
+												<p class="color_p"> {{ car.fuelType }} </p>
+												<p class="color_p"> {{ car.mileage }} </p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="number"> {{ car.tripsCompleted }} </div>
+										<p class="text-center" style="font-size:18px;font-weight: 500">Trips<br> Completed</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p>&nbsp;</p>
+
+					<!---
+					<div class="card card-body z-depth-1-half">
+						<div class="row">
+							<div class="col-sm-5">
+								<img src="img/car/car.jpg" width="292" alt="Car Pic" class="img-responsive">
+								<div class="row" style="padding-top:10px">
+									<div class="col-sm-5 " style="padding-right: 0px;">
+										<a class="btn btn-sm btn-yellow pull-left">View Details</a>
+									</div>
+									<div class="col-sm-6" style="padding-left: 0px;">
+										<a class="btn btn-sm btn-blue pull-left">Check Booking</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="row adjust">
+									<div class="col-sm-8">
+										<h5 class="text-left" style="font-weight: 600">Ford Fusion</h5>
+										<p class="text-left" style="line-height: 1.2;">The Ford Fusion is an expressive and efficient top choice among midsize sedans. The engines.</p>
+										<div class="row">
+											<div class="col-sm-6">
+												<p><b>Passengers</b></p>
+												<p><b>Important Details</b></p>
+												<p><b>Another Details</b></p>
+											</div>
+											<div class="col-sm-6">
+												<p class="color_p">5</p>
+												<p class="color_p">Decade Paulo</p>
+												<p class="color_p">Sakete Raito</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="number">3</div>
+										<p class="text-center" style="font-size:18px;font-weight: 500">Trips<br> Completed</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p>&nbsp;</p>
+					<div class="card card-body z-depth-1-half">
+						<div class="row">
+							<div class="col-sm-5">
+								<img src="img/car/car.jpg" width="292" alt="Car Pic" class="img-responsive">
+								<div class="row" style="padding-top:10px">
+									<div class="col-sm-5 " style="padding-right: 0px;">
+										 <a class="btn btn-sm btn-yellow pull-left">View Details</a>
+									</div>
+									<div class="col-sm-6" style="padding-left: 0px;">
+										<a class="btn btn-sm btn-blue pull-left">Check Booking</a>
+									</div>
+								 </div>
+							</div>
+							<div class="col-sm-7">
+								<div class="row adjust">
+									<div class="col-sm-8">
+										<h5 class="text-left" style="font-weight: 600">Ford Fusion</h5>
+										<p class="text-left" style="line-height: 1.2;">The Ford Fusion is an expressive and efficient top choice among midsize sedans. The engines.</p>
+										<div class="row">
+											<div class="col-sm-6">
+												<p><b>Passengers</b></p>
+												<p><b>Important Details</b></p>
+												<p><b>Another Details</b></p>
+											</div>
+											<div class="col-sm-6">
+												<p class="color_p">2</p>
+												<p class="color_p">Decade Paulo</p>
+												<p class="color_p">Sakete Raito</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="number">2</div>
+										<p class="text-center" style="font-size:18px;font-weight: 500">Trips<br> Completed</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p>&nbsp;</p>
+					<div class="card card-body z-depth-1-half">
+						<div class="row">
+							<div class="col-sm-5">
+								<img src="img/car/car.jpg" width="292" alt="Car Pic" class="img-responsive">
+								<div class="row" style="padding-top:10px">
+									<div class="col-sm-5 " style="padding-right: 0px;">
+										<a class="btn btn-sm btn-yellow pull-left">View Details</a>
+									</div>
+									<div class="col-sm-6" style="padding-left: 0px;">
+										<a class="btn btn-sm btn-blue pull-left">Check Booking</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-7">
+								<div class="row adjust">
+									<div class="col-sm-8">
+										<h5 class="text-left" style="font-weight: 600">Ford Fusion</h5>
+										<p class="text-left" style="line-height: 1.2;">The Ford Fusion is an expressive and efficient top choice among midsize sedans. The engines.</p>
+										<div class="row">
+											<div class="col-sm-6">
+												<p><b>Passengers</b></p>
+												<p><b>Important Details</b></p>
+												<p><b>Another Details</b></p>
+											</div>
+											<div class="col-sm-6">
+												<p class="color_p">1</p>
+												<p class="color_p">Decade Paulo</p>
+												<p class="color_p">Sakete Raito</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="number">1</div>
+										<p class="text-center" style="font-size:18px;font-weight: 500">Trips<br> Completed</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					-->
+
+					<!--/.Panel-->
+					<p>&nbsp;</p>
+				</div>
+			</div>
+			<!--Card-->
+		</div>
+	</div>
+</section>
+<app-footer> </app-footer>

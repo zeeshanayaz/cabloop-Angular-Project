@@ -1,0 +1,37 @@
+<ul style="list-style-type: none;">
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a href="#" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-home fa-1x" aria-hidden="true"></i>&nbsp; Dashboard
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a [routerLink]="['/my-car']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-car fa-1x" aria-hidden="true"></i>&nbsp; My Cars
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a [routerLink]="['/add-car']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-plus-circle fa-1x" aria-hidden="true"></i>&nbsp; Add Car
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a href="#" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-book fa-1x"></i>&nbsp; Booking
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a [routerLink]="['/add-id']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-id-card fa-1x" aria-hidden="true"></i>&nbsp; ID Proofs
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a [routerLink]="['/user-profile']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-user-circle-o fa-1x" aria-hidden="true"></i>&nbsp; Profile
+		</a>
+	</li>
+	<li class="pad" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+		<a (click)="logOut()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+			<i class="fa fa-power-off fa-1x" aria-hidden="true"></i>&nbsp; Logout
+		</a>
+	</li>
+</ul>

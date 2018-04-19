@@ -1,0 +1,19 @@
+export interface CarDetails{
+	id                : number;
+	idProofId         : number;
+	regNumber         :  any;
+	description       : string;
+	brand             : string;
+	model             : any;
+	mfgDate           : any;
+	insuranceUpto     : any;
+	pollutionCertUpto : any;
+	seatingCapacity   : any;
+	fuelType          : string;
+	kmsRan            : number;
+	mileage           : number;
+	tripsCompleted    : number;
+	images            : string[];
+	createdAt         : any;
+	updatedAt         : any;
+}

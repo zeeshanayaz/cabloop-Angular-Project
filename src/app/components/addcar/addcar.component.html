@@ -1,0 +1,657 @@
+<app-header> </app-header>
+
+<div class="loader" id="loading" *ngIf="loadingg">
+	<img src="../../assets/img/loader/252.gif" id="loading-content">
+</div>
+
+<section class="thin-banner" style="padding:100px 0 100px 0;">
+	<h3 class="text-center" style="font-weight:700; color:#FBC02D;">VENDOR<span style="color:#1976D2;"> &nbsp;DASHBOARD</span></h3>
+	<p class="text-center text-white">Manage your car via Vendor Dashboard</p>
+</section>
+
+<section style="padding:100px 0 100px 0; background-color: #F8FCFF;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 nopad">
+				<app-vendormenu> </app-vendormenu>
+			</div>
+			<div class="col-sm-10 details z-depth-1-half">
+				<div class="content">
+
+					<div *ngIf="error">
+						<p class="error">  {{ emessage1 }} </p>
+						<p class="error">  {{ emessage2 }} </p>
+						<p class="error">  {{ emessage3 }} </p>
+						<p class="error">  {{ emessage4 }} </p>
+						<p class="error">  {{ emessage5 }} </p>
+					</div> 
+
+					<div class="notice">
+						<p class="text-center text-blue"><span class="red-text"><b>Note </b></span> <b>:</b> Piio sdsds sddsds ssdsdsdcc dsdsdsdsd</p>
+					</div>
+
+					<p class="text-left" class="p_style">Add Images</p>
+
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="example z-depth-1">
+								<div class="text-center">
+									<div class="image-upload">
+										<label for="file-input">
+											<i class="fa fa-plus-circle add_image"></i>
+										</label>
+										<input id="file-input" type="file" class="upload" accept="image/*" #image name="images" (change)="uploadImage($event)"/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="example z-depth-1">
+								<div class="text-center">
+									<div class="image-upload">
+										<label for="file-input">
+											<i class="fa fa-plus-circle add_image"></i>
+										</label>
+										<input id="file-input" type="file" class="upload" accept="image/*" #image name="images" (change)="uploadImage($event)"/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="example z-depth-1">
+								<div class="text-center">
+									<div class="image-upload">
+										<label for="file-input">
+											<i class="fa fa-plus-circle add_image"></i>
+										</label>
+										<input id="file-input" type="file" class="upload" accept="image/*" #image name="images" (change)="uploadImage($event)"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><br><br>
+
+					<form action="">
+						<div class="md-form">
+							<textarea type="text" id="form8" class="md-textarea addtex" style="height: 80px;width: 97.5%;padding-left:20px"></textarea>
+							<label for="form8" style="padding-left:20px ">Write something about the car</label>
+						</div>
+					</form>
+
+					<p class="text-left p_style">Add details</p>
+
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="md-form form-sm">
+								<input type="text" id="form1" placeholder="Brand" class="form-control addtex" #brand>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form form-sm">
+								<input type="text" id="form1" placeholder="Model" class="form-control addtex" #model>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form form-sm">
+								<input type="text" id="form1" placeholder="Registration No." class="form-control addtex" #regNumber>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="p_style">  <label> Month/Year of manufacturing </label> </div>
+							<div class="input-group">
+								<input type="date" id="date-picker" placeholder="Month/Year of manufacturing" class="input-alternate datepicker addtex" #mfgDate>
+								<span class="input-group-addon input_date datepicker padlr12" id="date-picker"><i class="fa fa-calendar fa-color" aria-hidden="true"></i></span>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="p_style">  <label> Insurance valid upto </label> </div>
+							<div class="input-group">
+								<input type="date" id="date-picker1" placeholder="Insurance valid upto" class="input-alternate datepicker1 addtex" #insuranceUpto>
+								<span class="input-group-addon input_date datepicker1" id="date-picker1"><i class="fa fa-calendar fa-color" aria-hidden="true"></i></span>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="p_style">  <label> Pollution certificate upto </label> </div>
+							<div class="input-group">
+								<input type="date" id="date-picker2" placeholder="Pollution certificate upto" class="input-alternate datepicker2 addtex" #polutionCertUpto>
+								<span class="input-group-addon input_date datepicker2" id="date-picker2"><i class="fa fa-calendar fa-color" aria-hidden="true"></i></span>
+							</div>
+						</div>
+						<br>
+
+						<div class="col-sm-4">
+							<div class="input-group">
+								<input  type="text" id="date-picker3" placeholder="Fitness valid upto" class="input-alternate datepicker3 addtex">
+								<span class="input-group-addon input_date datepicker3" id="date-picker3"><i class="fa fa-calendar fa-color" aria-hidden="true"></i></span>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form">
+								<select class="form-control addtex" name="select" #fuelType>Fuel type
+									<option class="pad_left">Fuel type</option>
+									<option class="pad_left" value="Petrol"> Petrol </option>
+									<option class="pad_left" value="Diesal"> Diesel </option>
+									<option class="pad_left" value="CNG"> CNG </option>
+									<option class="pad_left" value="LPG"> LPG </option>
+									<option class="pad_left" value="Electric"> Electric </option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form">
+								<select class="form-control addtex" name="select" #kmsRan>KMS Van
+									<option class="pad_left">KMS Ran</option>
+									<option class="pad_left" value="500"> 500 km</option>
+									<option class="pad_left" value="1000"> 1000 km</option>
+									<option class="pad_left" value="5000"> 5000 km</option>
+									<option class="pad_left" value="10000"> 10000 km</option>
+									<option class="pad_left" value="20000"> 20000 km</option>
+									<option class="pad_left" value="30000"> 30000 km</option>
+									<option class="pad_left" value="50000"> 50000 km</option>
+									<option class="pad_left" value="100000"> 100000 km</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form">
+								<select class="form-control addtex" name="select" #mileage>Permission type
+									<option class="pad_left">Milleage KM/Ltr</option>
+									<option class="pad_left" value="12"> 12/Ltr</option>
+									<option class="pad_left" value="15"> 15/Ltr</option>
+									<option class="pad_left" value="18"> 18/Ltr</option>
+									<option class="pad_left" value="20"> 20/Ltr</option>
+									<option class="pad_left" value="22"> 22/Ltr</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-sm-4">
+							<div class="md-form">
+								<select class="form-control addtex" name="select">Fuel type
+									<option class="pad_left">ID Card</option>
+								</select>
+							</div> 
+						</div>
+
+						<div class="col-sm-4">
+							<div class="md-form">
+								<select class="form-control addtex" name="select" #seatingCapacity>Permission type
+									<option class="pad-left"> Seating Capacity </option>
+									<option class="pad_left" value="5">5</option>
+									<option class="pad_left" value="7">7</option>
+									<option class="pad_left" value="9">9</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<p class="text-left road">Road Permit</p>
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="md-form">
+									<select id = "numbers" class="form-control addtex" name="select" #statess>
+										<option class="pad_left"> Road Permit</option>
+										<option *ngFor="let state of states" value="{{state.abbreviation}}"> {{ state.name}} </option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<button type="button" class="btn btn-primary btn-sm pull-left" (click)="selectstates(statess.value)">Add</button>
+							</div>
+						</div>
+
+						<div class="row col-sm-12" style="padding-left: 0">
+							<div class="col-sm-3" *ngFor="let sstate of sstates">
+								<div class="chip">                                                                 
+									{{ sstate}}
+									<span class="closebtn1" onclick="this.parentElement.style.display='none'">&times;</span>
+								</div>
+							</div>
+							<button class="btn btn-primary btn-sm" (click)="addRoadPermit()"> Add permit </button>
+						</div>
+					</div>
+					
+					<p>&nbsp;</p>
+
+					<div class="accordion-option">
+						<p class="text-left road">Select prices for services you want</p>
+					</div>
+
+					<div class="clearfix"></div>
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background">
+									<div class="panel-heading" role="tab" id="headingOne">
+										<h4 class="panel-title">
+											<a role="button" class="road"  data-parent="#accordion" aria-expanded="false" (click)="showAirportPickup()">
+												Airport Pickup and Drop
+											</a>
+										</h4>
+									</div>
+
+									<div aria-labelledby="headingOne" *ngIf="showairport">
+										<div class="panel-body  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" value="F" id="radio4" #rate (click)="selectRate('O')">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #amount>
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+														<div class="form-group">
+															<input name="check2" type="checkbox" class="filled-in" id="checkbox2">
+															<label for="checkbox2">Free Cancellation</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" value="C" class="with-gap" id="radio4" #rate (click)="selectRate('C')">
+															<label for="radio4">Custom Rate</label>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Hourly Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/hr" class="form-control input-box einput" #ahourly>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Excess kms</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/km" class="form-control input-box einput" #aexcess>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Other charges</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #aother>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-sm-6">
+															<button type="button" class="btn btn-yellow btn-sm btn-block"> Submit </button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>		<!--- panel ends here -->
+							</div>		<!--- 1st colmn 6 ends here -->
+
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background">
+									<div class="panel-heading" role="tab" id="headingTwo">
+										<h4 class="panel-title">
+											<a class="collapsed road" role="button" data-parent="#accordion"  aria-expanded="false" (click) ="showHourly()">
+												Hourly Rental
+											</a>
+										</h4>
+									</div>
+									<div aria-labelledby="headingTwo" *ngIf="hourly">
+										<div class="panel-body  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4" (click)="selectHRate('F')">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #hamount>
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+														<div class="form-group">
+															<input name="check2" type="checkbox" class="filled-in" id="checkbox2">
+															<label for="checkbox2">Free Cancellation</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="form-group pad20t">
+																<input name="group" type="radio" class="with-gap" id="radio4" (click)="selectHRate('C')">
+																<label for="radio4">Custom Rate</label>
+															</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Hourly Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/hr" class="form-control input-box einput" #hhourly>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Excess kms</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/km" class="form-control input-box einput" #hexcess>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Other charges</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #hother>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<p>&nbsp;</p>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background">
+									<div class="panel-heading" role="tab" id="headingThree">
+										<h4 class="panel-title">
+											<a class="collapsed road" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" (click)="showDaily()">
+												Daily basis - Inside city
+											</a>
+										</h4>
+									</div>
+									<div aria-labelledby="headingThree" *ngIf="daily">
+										<div class="panel-body  padtop  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap einput" id="radio4" (click)="selectHRate('F')">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #damount>
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+														<div class="form-group">
+															<input name="check2" type="checkbox" class="filled-in" id="checkbox2">
+															<label for="checkbox2">Free Cancellation</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4" (click)="selectHRate('C')">
+															<label for="radio4">Custom Rate</label>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Hourly Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/hr" class="form-control input-box einput" #dhourly>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Excess kms</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/km" class="form-control input-box einput" #dexcess>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Other charges</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput" #dother>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background">
+									<div class="panel-heading" role="tab" id="headingFour">
+										<h4 class="panel-title">
+											<a class="collapsed road" role="button"  aria-expanded="false" (click)="dailyLong()">
+												Daily basis - Long distance
+											</a>
+										</h4>
+									</div>
+									<div aria-labelledby="headingFour" *ngIf="dailylong">
+										<div class="panel-body  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput">
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+														<div class="form-group">
+															<input name="check2" type="checkbox" class="filled-in" id="checkbox2">
+															<label for="checkbox2">Free Cancellation</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4">
+															<label for="radio4">Custom Rate</label>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Hourly Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/hr" class="form-control input-box einput">
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Excess kms</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/km" class="form-control input-box einput">
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Other charges</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<p>&nbsp;</p>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background background">
+									<div class="panel-heading" role="tab" id="headingFive">
+										<h4 class="panel-title">
+											<a class="collapsed road" role="button" aria-expanded="false" (click)="showHoliday()">
+												Weekend and holiday special
+											</a>
+										</h4>
+									</div>
+									<div aria-labelledby="headingFive" *ngIf="holiday">
+										<div class="panel-body  padtop  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput">
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot pad20t">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4">
+															<label for="radio4">Custom Rates</label>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Hourly Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/hr" class="form-control input-box einput">
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Excess kms</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/km" class="form-control input-box einput">
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<label for="form1" class="">Other charges</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box einput">
+															 </div>
+														</div>
+													</div>
+												</div>
+												<div class="container">
+													<div class="row">
+														<div class="col-sm-4">
+															<label for="form1" class="">Daily Rental</label>
+															<div class="md-form form-sm">
+																<input type="text" id="form1" placeholder="Rs/day" class="form-control input-box einput">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="panel panel-default z-depth-1 nopad background">
+									<div class="panel-heading" role="tab" id="headingSix">
+										<h4 class="panel-title">
+											<a class="collapsed road" role="button" data-toggle="collapse" data-parent="#accordion"  aria-expanded="false" aria-controls="collapseSix" (click)="showMonthly()">
+												Monthly Rental
+											</a>
+										</h4>
+									</div>
+									<div aria-labelledby="headingSix" *ngIf="monthly">
+										<div class="panel-body  padtop">
+											<div class="container">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group pad20t">
+															<input name="group" type="radio" class="with-gap" id="radio4">
+															<label for="radio4">Fixed Rate</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="md-form form-sm">
+															<input type="text" id="form1" placeholder="Amount (Rs)" class="form-control input-box "einput>
+														</div>
+													</div>
+													<div class="col-sm-5">
+														<div class="form-group nomarbot pad20t">
+															<input type="checkbox" class="filled-in" id="checkbox1">
+															<label for="checkbox1">Fuel Charges</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p>&nbsp;</p>
+					<div class="row">
+						<div class="col-sm-12">
+							<button type="button" class="btn btn-yellow btn-sm btn-block asub" (click) ="addCar(regNumber.value,brand.value,model.value,mfgDate.value,insuranceUpto.value,polutionCertUpto.value,seatingCapacity.value,fuelType.value,kmsRan.value,mileage.value)">submit</button>
+						</div>   
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-footer> </app-footer>

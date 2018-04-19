@@ -1,0 +1,66 @@
+<header>
+	<style type="text/css">
+		.color {
+			color:#000000;
+			background: #e7eae5;
+		}
+	</style>
+
+	<div class="color">
+		<marquee><p style="font-family: 'Work Sans'; font-size: 12pt;margin-top: 0.5rem;margin-bottom: 0.5rem">Some offers will be shown here!!!</p></marquee>
+	</div>
+
+	<nav [ngClass]="{'stick': shouldStick}" id="nav" class="navbar sticky  navbar-expand-lg navbar-dark blue darken-3 nopad waves-light" mdbRippleRadius style="z-index:100;">
+		<div class="container">
+			<a class="navbar-brand" href="./"><img src="../../assets/img/logo/logo.png" alt="Logo"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<!-- Links -->
+				<ul class="navbar-nav ml-auto navbar-right" >
+					<li class="nav-item">
+						<a 
+						class="nav-link" 
+						[routerLink]="['']" 
+						routerLinkActive="router-link-active" 
+						[routerLinkActiveOptions]="{exact:true}">Home <span class="sr-only">(current)</span></a>
+					</li>
+
+					<li class="nav-item">
+						<a 
+						class="nav-link waves-light" mdbRippleRadius
+						[routerLink]="['/services']" 
+						routerLinkActive="router-link-active" 
+						[routerLinkActiveOptions]="{exact:true}">Services</a>
+					</li>
+
+					<li class="nav-item">
+						<a 
+						class="nav-link waves-light" mdbRippleRadius 
+						[routerLink]="['/user-profile']" 
+						routerLinkActive="router-link-active" 
+						[routerLinkActiveOptions]="{exact:true}">My Account</a>
+					</li>
+
+					<li class="nav-item">
+						<a 
+						class="nav-link waves-light" mdbRippleRadius
+						[routerLink]="['/contact-us']" 
+						routerLinkActive="router-link-active" 
+						[routerLinkActiveOptions]="{exact:true}">Contact Us</a>
+					</li>
+
+					<li class="nav-item" *ngIf="!isSignedIn">
+						<a 
+						class="btn btn-md btn-yellow sbu waves-light" mdbRippleRadius
+						style="line-height:1.00;margin:12px;margin-top: 15px;" 
+						[routerLink]="['/sign-up']">Sign in</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>

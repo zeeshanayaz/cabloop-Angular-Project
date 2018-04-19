@@ -1,0 +1,95 @@
+<app-header> </app-header>
+
+<div class="loader" id="loading" *ngIf="loadingg">
+	<img src="../../assets/img/loader/252.gif" id="loading-content">
+</div>
+
+<section class="thin-banner" style="padding:100px 0 100px 0;">
+	<h3 class="text-center" style="font-weight:700; color:#FBC02D;">VENDOR<span style="color:#1976D2;">  &nbsp;DASHBOARD</span></h3>
+	<p class="text-center text-white">Manage your car via Vendor Dashboard</p>
+</section>
+
+<section style="padding:100px 0 100px 0; background-color: #F8FCFF;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 nopad">
+				<app-vendormenu> </app-vendormenu>
+			</div>
+			<div class="col-sm-10 details z-depth-1-half">
+				<div class="content">
+					<p class="text-left" style="font-weight: 600;color:#006ACE;">Added IDs</p>
+
+					<div id="Add_div" class="row">
+						<div class="col-sm-4" *ngFor="let idproof of getIdProofs">
+							<div class="input-group" [ngSwitch]="true">
+								<span class="input-group-addon scolorg" style="background-color: #0B65CD!important;"><i class="fa fa-user" aria-hidden="true"></i></span>
+								<input  *ngSwitchCase="idproof.idType === 'A' " type="text" name=" id_number"  value="{{idproof.fullName}} / Adhaar-ID" disabled="true" class="form-control colorg">
+								<input  *ngSwitchCase="idproof.idType === 'V' " type="text" name=" id_number"  value="{{idproof.fullName}} / Voter-ID" disabled="true" class="form-control colorg">
+								<span class="input-group-addon scolorg">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<form [formGroup]="addIdForm">
+						<p class="text-left" style="font-weight: 600;color:#006ACE;">Add Images</p>
+
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="example z-depth">
+									<!-- <p>ffgdgdfg</p>  -->
+									<div class="text-center">
+										<div class="image-upload">
+											<div id="upload_prev">
+												<img id="photoShowId" src="" width="185" height="150" />
+											</div>
+
+											<div style="display: none;">
+												<input id="uploadBtn" type="file" class="upload" value="Add Image" alt="Profile Pic" accept="image/*" name="browsefile" />
+											</div>
+
+											<button class="btn btn-block" type="button" style="color:black!important;background: #e8e7e4;box-shadow: none;">Add Image
+											</button>
+										</div>
+									</div>
+								</div><br><p></p>
+
+								<div class="form-group">
+									<input name="group2" type="radio" value="O" class="with-gap" id="radio4" #icat  (click)="selectCat('O')">
+									<label for="radio4">Owner ID</label>
+								</div>
+
+								<div class="form-group">
+									<input name="group2" type="radio" value="D" class="with-gap" id="radio5" #icat (click)="selectCat('D')">
+									<label for="radio5">Driver ID</label>
+								</div>
+							</div>
+
+							<div class="col-sm-5">
+								<div class="md-form form-sm">
+								<input type="text" name="fname" id="fname"  placeholder="Full Name" #fullName class="form-control idinp"  formControlName="fullName">
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-addon" style="width:84%;padding:0px;height: 42px;">
+									<select class="form-control" name="select" style="background: #E8E7E4!important;border:none;" #itype formControlName="idType"> Select Card
+										<option style="padding-left: 0.8rem;" value="">Select Card</option>
+										<option value="V">Voter Card</option>
+										<option value="A">Aadhaar Card</option>
+									</select>
+								</span>
+								<input type="text" name=" id_number" id="id_no" class="idinp" placeholder="Card No" #ino formControlName="idNumber" style="padding-bottom: 5px;padding-left: 10px">
+							</div>
+
+							<div class="input-group"><span ><input id="uploadBtn1" type="file" class="upload" value="Add Image" accept="image/*" #image name="images" (change)="uploadImage($event)"/></span></div>
+								<button type="button" class="btn btn-yellow btn-sm btn-block aButton" id="addButton" (click)="addIdProof(ino.value,itype.value,fullName.value)">Add</button>
+							</div>
+						 </div><br><br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-footer> </app-footer>
